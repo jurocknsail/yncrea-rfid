@@ -1,0 +1,94 @@
+site_name: 'Yncrea - Cours RFID'
+
+# Repository
+repo_name: yncrea-rfid
+repo_url: https://github.com/jurocknsail/yncrea-rfid
+edit_uri: ""
+site_description: >-
+  Ce cours fait partie du cours <b>ITII 2 - SmartCards / RFID</b> pour <b>YNCREA Toulon</b> sur les SmartCards et plus particulièrement les systèmes RFID.
+  <br><br>
+  <i>Le cours se déroule sur 1 jour et vise à donner aux étudiants un aperçu des cartes et badges RFID, leur fonctionnement, forces et faiblesses via des pen-tests.</i>
+
+
+nav:
+  - Home: index.md
+  - Day#1:
+    - Introduction: 00_intro.md
+
+theme:
+  language: en
+  name: 'material'
+  logo: assets/images/yncrea.png
+  favicon: assets/images/yncrea.png
+  palette:
+    primary: amber
+    accent: amber
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - tabs
+    - instant
+    - navigation.instant
+    - navigation.tabs
+  custom_dir: material
+
+markdown_extensions:
+  - admonition
+  - abbr
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - toc:
+      permalink: ⚓︎
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      check_paths: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+copyright: '&copy; 2020 Julien Berger'
+
+# Customization
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/jurocknsail
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/julien-berger-0a9671154/
+
+extra_javascript:
+  - javascripts/config.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+# Google Analytics
+google_analytics:
+  - !!python/object/apply:os.getenv ["GOOGLE_ANALYTICS_KEY"]
+  - auto
