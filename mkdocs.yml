@@ -16,9 +16,9 @@ nav:
     - Introduction: 00_intro.md
     - RFID vs NFC: 01_rfid-vs-nfc.md
     - Puces et Lecteurs RFID: 02_puces-lecteurs-rfid.md
-    - RFID - Exemples concrets : 03_rfid-exemples.md
     - Limites du RFID: 04_limites-rfid.md
-    - TP - MIFARE Classic 1K Hacking: 05_mifare-classic-1k-hacking.md
+    - Etude - MIFARE Classic 1K: 05_mifare-classic-1k.md
+    - TP - MC 1K Ethical Hacking: 06_mifare-classic-1k-hacking.md
 
 
 
