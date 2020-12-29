@@ -2,22 +2,27 @@
 
 ---  
 
-Mifare produit des cartes à puce et RFID de haute qualité.  
+Mifare produit la majorité des cartes à puce et RFID .  
 Nous allons observer la Mifare Classic 1K, car elle est ancienne et possède quelques failles de sécurité à exploiter.  
-Malgrès cela elle reste très répandue dans le marché de la RFID low cost ...
+
+!!! warning
+    Malgrès cela elle reste très répandue dans le marché de la RFID low cost ...
 
 ---
 
 ## UID
 
-Tous les badges et cartes Mifare possèdent un identifiant unique : l'UID.  
+Tous les badges et cartes Mifare possèdent un identifiant : le **NUID** (Non Unique ID)  
 Il est codé sur **4 Bytes.** 
+
+!!! info
+    Certaines cartes MiFare plus évoluées possèdent un UID (Unique ID) codé sur 7 Bytes.
 
 ---
 
 ## Structure générale
 
-Il est important de connaitre l'oirganisation de la mémoire d'une carte pour espérer pouvoir exploiter ses failles.  
+Il est important de connaitre l'organisation de la mémoire d'une carte pour espérer pouvoir exploiter ses failles.  
 
 Une Mifare 1K se décompose ainsi :
 
@@ -27,11 +32,7 @@ Une Mifare 1K se décompose ainsi :
 - Chaque block contient **16 Bytes**
 
 !!! info
-    4 * 16 * 16 = 1024 !
-    
-Le **block 0** est appelé **"Manufacturer Block"**. Il contient des infos sur la cartes, notamment son UID.  
-
-De plus le **4ème block de chaque secteur** est appelé **"Sector Trailer"**.    
+    4 * 16 * 16 = 1024 !   
 
 
 ![mc1kstruct](./assets/images/rfid/mc1kstruct.JPG "mc1kstruct")
@@ -42,15 +43,15 @@ De plus le **4ème block de chaque secteur** est appelé **"Sector Trailer"**.
 ## Manufacturer Block
 
 Il s'agit du **premier bloc de données** (bloc 0) du **premier secteur** (secteur 0).   
-Il contient les données du fabricant, mais surtout l'**UID** de la carte, identifiant UNIQUE.
+Il contient les données du fabricant, mais surtout l'==**UID**== de la carte.
 
 !!! warning
-    Ce bloc est programmé et **protégé en écriture** dans le test de production.
+    Ce bloc est programmé et ==**protégé en écriture**== dans le test de production.
     
 ![block0](./assets/images/rfid/block0.JPG "block0")
     
 !!! tip
-    Il existe des cartes chinoises appelées "Magic Cards", dont le bloc 0 est accessible en écriture ...  
+    Il existe des cartes chinoises appelées *"Magic Cards"*, dont le bloc 0 est accessible en écriture ...  
     Cela permet de cloner des cartes ! :skull:
 ---
 
@@ -71,7 +72,7 @@ Ils sont utilisés notamment dans les porte-feuils électroniques.
 
 ## Accès Mémoire
 
-Avant toute opération de mémoire, la carte doit être sélectionnée et authentifiée.  
+Avant toute opération de mémoire, la carte doit être ==**sélectionnée**== et ==**authentifiée**==.  
 Les opérations de mémoire possibles pour un bloc adressé dépendent de la clé utilisée lors de l'authentification et des access conditions stockées dans le sector trailer associé.
 
 ![memops](./assets/images/rfid/memops.JPG "memops")
@@ -81,14 +82,14 @@ Les opérations de mémoire possibles pour un bloc adressé dépendent de la cl�
 
 ## Sector Trailer
 
-C'est le 4ème secteur de chaque Block. Dans ce secteur on retrouve les 2 clés A et B.  
+C'est le **4ème Block de chaque Secteur**. Dans ce Block on retrouve les ==**2 clés A et B**==.  
 - A sur les 6 premiers octets
 - B sur les 6 denriers octets
 Les clés A et B régissent l'accès aux différentes parties de la mémoire, par secteur.  
 
 Il y a donc une gestion de l'authentification sur ces cartes.
 
-Les 4 octets du milieux sont les **Access Bits**.
+Les **4 octets du milieux** sont les ==**Access Bits**==.
 
 ![trailer](./assets/images/rfid/trailer.JPG "trailer")
 
@@ -99,7 +100,7 @@ Les 4 octets du milieux sont les **Access Bits**.
 
 ## Access Bits 
 
-Ce sont les octets 6, 7, 8 et 9 du sector trailer.  
+Ce sont les octets 6, 7, 8 et 9 d'un Sector Trailer Block.  
 Seules les bits 6, 7 et 8 sont utilisés pour coder les conditions d'acces des block 0, 1, et 2.
 L'octet 9 est libre d'accès à l'utilisateur.
 

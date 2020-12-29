@@ -7,10 +7,6 @@ La diffusion de l’information pose problème pour toutes les questions sur la 
 
 !!! warning
     Une carte non sécurisée peut être facilement copiée pour récupérer ou modifier les données sensibles.
-    
-    
-![rfidblock](./assets/images/rfid/rfidblock.png "rfidblock"){: style="height:400px;width:900px;align=center"}
-
 
 De ce fait, il est nécessaire **d’apporter plus de sécurité** :
 
@@ -18,6 +14,9 @@ De ce fait, il est nécessaire **d’apporter plus de sécurité** :
 - Limiter la durée de vie des données enregistrées sur les cartes RFID (La carte Navigo ne donne que les trois dernières stations pour ne pas tracer les individus et éviter la fraude)  
 - Chiffrer ou coder les données pour ne pas risquer de divulguer des informations sensibles telles que des informations d’identités, des données bancaires…
 - Pour permettre l’identification d’une carte, associer une photo pour reconnaître le propriétaire de la carte ou imprimer un hologramme pour authentifier la carte.
+
+![rfidblock](./assets/images/rfid/rfidblock.png "rfidblock"){: style="height:400px;width:900px;align=center"}
+
 
 Aussi, toutes les puces ne sont pas lisibles à la même distance et dans les mêmes conditions. 
 La **transmission des ondes est limitée** à travers certains murs et certains métaux.  

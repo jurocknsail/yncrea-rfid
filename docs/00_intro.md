@@ -7,9 +7,9 @@
 
 Avec la croissance des produits **RFID**, il est important de bien comprendre comment la technologie *fonctionne* et comment l’*utiliser* de la manière la plus efficace.   
 
-Nous allons voir comment fonctionne la techno, et utilisser une carte **Mifare Classic 1K** pour exemple.  
-Nous allons ensuite essayer de trouver les **failles de sécurité** de cette carte, et en exploiter afin de **hacker** puis **cloner** la carte en question.  
+Nous allons utiliser une carte **Mifare Classic 1K** pour exemple.  
 
+Nous allons ensuite exploiter les **failles de sécurité** de cette carte afin de **hacker** puis **cloner** la carte en question.  
 
 --- 
 
@@ -20,6 +20,7 @@ Tous les jours nous utilisons des **produits RFID** sans le savoir : cartes de t
 Cette technologie a pour avantager de faire gagner du temps aux usagers et de permettre une lecture rapide des données.  
 
 La RFID est une méthode qui permet de **mémoriser et récupérer des données à distance**.   
+
 Le système est activé par un *transfert d’énergie électromagnétique* entre une étiquette radio (passive le plus souvent) et un émetteur RFID (actif).  
 
 L’étiquette radio, composée d’une puce électronique et d’une antenne,  reçoit le signal radio émis par le lecteur RFID.  
@@ -112,6 +113,6 @@ Pour optimiser au mieux sa chaîne logistique, des entreprises comme Décathlon 
 
 Dans le futur, nous pourrons voir la RFID dans d’autres domaines tels que la médecine, dans les poubelles publiques, ou reliés à une connexion Wi-Fi. 
 
-Esso a, par exemple, mis en place un système qui permettrait de s’approvisionner en carburant grâce à un lecteur positionné dans sa voiture.
+**Esso** a, par exemple, mis en place un système qui permettrait de s’approvisionner en carburant grâce à un lecteur positionné dans sa voiture.
 
 Etc ...

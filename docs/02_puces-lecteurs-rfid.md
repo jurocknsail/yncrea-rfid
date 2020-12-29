@@ -43,13 +43,13 @@ En fonction de ces éléments, la puce sera plus ou moins puissante et plus oné
 
 Cette technologie se décline en trois versions :
 
-- La RFID passive :  
+- ^^La RFID passive^^ :  
   Fonctionne en lecture seule puisque la puce ne possède pas de batterie et doit être déplacé vers le lecteur pour être lu. Un puissant signal électromagnétique lui est alors envoyé, ce qui permet d’activer la puce RFID et de lire les informations qu’elle contient.  
 
-- La RFID active :  
+- ^^La RFID active^^ :  
   Fonctionne avec une source d’énergie telle qu’une petite pile ou une batterie, ce qui permet de lire la carte à plus longue distance.   
 
-- La RFID semi-passive :   
+- ^^La RFID semi-passive^^ :   
   Tout comme la RFID active, la RFID semi-passive est alimenté par une source d’énergie. Cependant, la batterie alimente la puce RFID à des intervalles de temps réguliers (économie d'énergie). Celle-ci n’envoie pas de signal.
 
 
@@ -62,7 +62,7 @@ Ce lecteur a pour but de lire les données si elles ont été enregistrées à l
 
 
 
-|   Types  |                                               Caractéristiques                                               |                                                     Distance de lecture                                                     |                                        Fréquence                                        |
+|   Types {: style="width:200px;overflow:hidden" } |                                               Caractéristiques  {: style="width:200px;overflow:hidden" }                                             |                                                     Distance de lecture {: style="width:200px;overflow:hidden" }                                                    |                                        Fréquence    {: style="width:200px;overflow:hidden" }                                   |
 |:--------:|:------------------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------:|
 | Fixe     | Sous forme de portique ou bornes notamment en caisse de supermarché, en contrôle d’accès, à la bibliothèque. | Proximité : 25cm (le plus commun) <br>Voisinage : jusqu’à 1m <br>Moyenne distance : jusqu’à 9m <br>Longue portée : centaines de mètres. | Basse fréquence LF 125 Khz <br>Haute fréquence HF 13,56Mhz  <br>Très haute fréquence UHF 868Mhz |
 | Portable | Flasher portatif pour lire les étiquettes manuellement. Les étiquettes n’ont pas besoin d’être déplacées.      | Quelques centimètres à quelques mètres                                                                                      | Basse fréquence LF 125 Khz <br>Haute fréquence HF 13,56Mhz <br>Très haute fréquence UHF 868 Mhz  | 
