@@ -107,8 +107,12 @@ Il existe trois commandes principales :
 Tentons de détecter la fréquence de fonctionnement d’un tag inconnu.   
 Il existe une fonction dans le Proxmark 3 qui mesure la chute de tension induite dans l’antenne lorsqu’un tag s’alimente.  
 
-La commande ``hw tune`` renseigne les tensions présentes dans les deux antennes (basse et haute fréquences). ` 
-Si nous lançons le client avec le support Qt5, la commande tracera également une courbe de tension de l’antenne basse fréquence en fonction de la fréquence utilisée, montrant ainsi à quelle fréquence l’antenne LF fonctionne de manière optimale.
+La commande ``hw tune`` renseigne les tensions présentes dans les deux antennes (basse et haute fréquences). 
+
+!!! tip
+    Si nous lançons le client avec le support Qt5,   
+    la commande tracera également une courbe de tension de l’antenne basse fréquence en fonction de la fréquence utilisée,   
+    montrant ainsi à quelle fréquence l’antenne LF fonctionne de manière optimale.
 
 Si on mesure les tensions présentes avant et après l’approche du tag sur les antennes haute et basse fréquences, on observera une chute importante de la tension à la fréquence de fonctionnement du tag.
 
