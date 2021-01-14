@@ -13,20 +13,25 @@ Ce lecteur vient avec son propre SDK et coute entre 25€ et 30€.
   
 ### ACR122u Tool - UID
 
-1. Clicker sur le bouton de connection, la LED du lecteur est rouge
-1. Poser la carte sur le lecteur, la LED devient verte
-1. Clicker sur Connecter
-1. ``Reader Commands > Get Data`` permet de récupérer l'UID de la carte
+1. Connecter le lecteur au PC
+1. Ouvrir le logiciel 'ACS SMart Card Reader'
+1. Selectionner `Smart Cards > MIFARE SERIES > Mifare Classic > Mifare Classic Card Tool`
+1. La LED du lecteur est rouge
+1. Poser la carte **#1** sur le lecteur, la LED devient verte
+1. Cliquer sur ```New Connection > PC/SC Connection``` pour connecter le lecteur
+1. ``Card UUID`` permet de récupérer l'UID de la carte
 
 ### ACR122u Tool - ATR
 
-Comme sur une smart card, il nous faut effectuer l'ATR (Answer To Reste) pour communiquer avec la carte.   
+Comme sur une smart card, on voit l'ATR (Answer To Reset) passer quand on pose la carte sur le lecteur.   
 Cela nous donnera l'accès aux commandes cartes.  
 
-1. ``Reader Commands > Get ATR``
-1. Il faut maintenant Charger les Clés dans le lecteur : ``Load Authentication Keys > FF FF FF FF FF FF`` (Default Transport Configuration pour toute nouvelle carte)
-1. Puis on peut ``Authenticate`` sur le block de notre choix : **Block 0**
-1. On peut enfin ``Read`` le Block 0 en Hexa et retrouver notre UID !
+1. Il faut maintenant Charger les Clés dans le lecteur : 
+``Load Key > Key Structure : 00 / Key Number : 00 / Key > FF FF FF FF FF FF`` (Default Transport Configuration pour toute nouvelle carte)
+``Load Key > Key Structure : 00 / Key Number : 01 / Key > FF FF FF FF AA AA`` (Clé modifiée du secteur 1).
+
+1. Puis on peut ``Authenticate`` sur le block de notre choix : **Block 00** (en HEX), avec la Clé A n° 00 provisionnée au dessus.
+1. On peut enfin ``Read`` le Block 0 (en HEX) sur une longueur de **OF** et retrouver notre UID !
 1. On peut lire les Blocks 1 et 2, ils ne contiennent que des 0.
 1. On peut aussi lire le Block 3 qui est le sector trailer du secteur 0.
 
@@ -50,9 +55,9 @@ Cela nous donnera l'accès aux commandes cartes.
     Et on ne pourra jamais la lire sur une Mifare, il faut obligatoirement que le lecteur la connaisse au préalable !
     
 !!! tip
-    Pour modifier les clés facilement, il faut utiliser un autre outil **"ACS MiFare Key Management Tool"**.
+    Pour modifier les clés facilement, il faut utiliser **"Easy Key"**.
     
-1. Utiliser le Key Management Tool pour changer la clé A
+1. Utiliser `Easy Key` pour changer la clé A
 1. S'authentifier avec la Clé A : ``FF FF FF FF FF FF`` sur le **Sector 1**
 1. Updater la Clé A du Sector 1 en  : ``FF FF FF FF AA AA``, puis cliquer sur ``Format Sector``
 
