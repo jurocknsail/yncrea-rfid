@@ -89,6 +89,13 @@ Il vient avec le logiciel ``proxmark3`` qui lui est open source.
 
 ![proxmark3](./assets/images/rfid/proxmark3.jpg "proxmark3")
 
+[Documentation PM3] (https://github.com/Proxmark/proxmark3/wiki/Ubuntu-Linux)
+
+```bash linenums="1"
+cd RFID/proxmark3/client
+./proxmark3 /dev/ttyACM0
+
+```
 
 ### Trouver la fréquence d'un badge inconnu
 
@@ -142,7 +149,7 @@ Nous utilisons la carte avec les clés modifiées sur le secteur 1.
 
 ```bash linenums="1"
 
-proxmark3> hf 14a read
+proxmark3> hf 14a info
 
 proxmark3> hf mf chk *1 ? t
 
@@ -184,7 +191,7 @@ Les manipulations ci-dessus n’ont été possibles que parce que nous avons dé
 L’attaque dite Darkside ou de Courtois, du nom de son découvreur Nicolas Courtois, va tenter de retrouver une clé configurée dans un tag en exploitant un défaut dans l’initialisation du générateur de nombres aléatoires du microcontrôleur du tag (le générateur commence toujours par la même valeur lorsque la carte est alimentée, donc si on contrôle finement le timing, on prédit le nombre aléatoire tiré par le tag). Dès qu’une première clé est découverte, il sera alors possible de passer à l’attaque Nested.  
 
 ```bash linenums="1"
-proxmark3> hf hf mf mifare
+proxmark3> hf mf mifare
 ```    
 
 Ici aussi, si le tag MIFARE est trop récent, l’attaque échouera et on devra recourir à d’autres types d’attaques.
@@ -214,7 +221,7 @@ Des détails peuvent êtres trouvés [ici](https://connect.ed-diamond.com/MISC/M
 
 ### BruteForce Attack
 
-Dans tous les cas, on peut aussi toutes les combinaison possible de clé jusqu'à en trouver une .... puis appliquer une Nested Attack.  
+Dans tous les cas, on peut aussi tester toutes les combinaison possible de clé jusqu'à en trouver une .... puis appliquer une Nested Attack.  
 Résultat en 2 jours garantis ...
 
 
