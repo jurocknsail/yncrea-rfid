@@ -42,6 +42,10 @@ Cela nous donnera l'accès aux commandes cartes.
 1. Authenticate sur Block 5
 1. Write & Read le Block 5 (Peut être décodé en ASCII)
 
+!!! warning
+    Pour lire, il faut spécifie ru longueur > 0
+    Pour écrire, il faut écrire TOUT le bloc (Longueur 16 Octets donc 0x10)
+
 !!! tip
     Le numéro du block doit être mis en Hexa. Si on veut le block 11, il faut mettre ``0x0B``.
 
