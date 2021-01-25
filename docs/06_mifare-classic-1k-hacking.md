@@ -96,7 +96,7 @@ Il vient avec le logiciel ``proxmark3`` qui lui est open source.
 
 ![proxmark3](./assets/images/rfid/proxmark3.jpg "proxmark3")
 
-[Documentation Officielle PM3](https://github.com/Proxmark/proxmark3/wiki/Ubuntu-Linux)
+[Documentation Officielle PM3](https://github.com/Proxmark/proxmark3/wiki/Ubuntu-Linux)  
 [Source utile](https://connect.ed-diamond.com/MISC/MISCHS-016/Proxmark-3-le-couteau-suisse-RFID).
 
 !!! danger "DISCLAIMER"
@@ -108,7 +108,7 @@ Il vient avec le logiciel ``proxmark3`` qui lui est open source.
 !!! tip
     Pour les besoins de ce cours j'ai flashé le firmware modifié du developer "Iceman" ;)
     
-    [Iceman repo] (https://github.com/RfidResearchGroup/proxmark3)
+    [Iceman repo](https://github.com/RfidResearchGroup/proxmark3)
     
 
 Pour utiliser le client `pm3 de Iceman :
