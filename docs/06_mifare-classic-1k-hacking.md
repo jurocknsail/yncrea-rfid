@@ -96,8 +96,13 @@ Il vient avec le logiciel ``proxmark3`` qui lui est open source.
 
 ![proxmark3](./assets/images/rfid/proxmark3.jpg "proxmark3")
 
-[Documentation Officielle PM3] (https://github.com/Proxmark/proxmark3/wiki/Ubuntu-Linux)
+[Documentation Officielle PM3](https://github.com/Proxmark/proxmark3/wiki/Ubuntu-Linux)
 [Source utile](https://connect.ed-diamond.com/MISC/MISCHS-016/Proxmark-3-le-couteau-suisse-RFID).
+
+!!! danger "DISCLAIMER"
+    Dans ce cours nous ne hackerons que des cartes/badges personnelles dont nous avons nous même crypté les données !  
+    Nous sommes des "White Hats" !
+    ![white](./assets/images/rfid/white.png "white")
 
 
 !!! tip
