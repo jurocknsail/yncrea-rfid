@@ -89,12 +89,19 @@ Il vient avec le logiciel ``proxmark3`` qui lui est open source.
 
 ![proxmark3](./assets/images/rfid/proxmark3.jpg "proxmark3")
 
-[Documentation PM3] (https://github.com/Proxmark/proxmark3/wiki/Ubuntu-Linux)
+[Documentation Officielle PM3] (https://github.com/Proxmark/proxmark3/wiki/Ubuntu-Linux)
 
+!!! tip
+    Pour les besoins de ce cours j'ai flashé le firmware modifié du developer "Iceman" ;)
+    
+    [Iceman repo] (https://github.com/RfidResearchGroup/proxmark3)
+    
+
+Pour utiliser le client de Icemann :     
 ```bash linenums="1"
-cd RFID/proxmark3/client
-./proxmark3 /dev/ttyACM0
-
+❯ pm3
+ou
+❯ proxmark3 /dev/tty.usbmodemiceman1
 ```
 
 ### Trouver la fréquence d'un badge inconnu
@@ -116,30 +123,42 @@ La commande ``hw tune`` renseigne les tensions présentes dans les deux antennes
 
 Si on mesure les tensions présentes avant et après l’approche du tag sur les antennes haute et basse fréquences, on observera une chute importante de la tension à la fréquence de fonctionnement du tag.
 
+Sans la carte :
 ```bash linenums="1"
-proxmark3> hw tune l
+[usb] pm3 --> hw tune
+[=] Measuring antenna characteristics, please wait...
+ 🕚  10
+[+] LF antenna: 40.15 V - 125.00 kHz
+[+] LF antenna: 34.79 V - 134.83 kHz
+[+] LF optimal: 42.62 V - 127.66 kHz
+[+] LF antenna is OK
 
-Measuring antenna characteristics, please wait........
-# LF antenna: 45.51 V @ 125.00 kHz
-# LF antenna: 23.10 V @ 134.00 kHz
-# LF optimal: 45.51 V @ 125.00 kHz
-Displaying LF tuning graph. Divisor 89 is 134khz, 95 is 125khz.
+[+] HF antenna: 36.26 V - 13.56 MHz
+[+] HF antenna is OK
+
+
+[+] Displaying LF tuning graph. Divisor 88 is 134.83 kHz, 95 is 125.00 kHz.
 ```
 
-Dans cet exemple, le hw tune est lancé sans carte, la **tension induite** est de **45,51 V**.
-
+Avec la carte :
 ```bash linenums="1"
-proxmark3> hw tune l
+[=] Measuring antenna characteristics, please wait...
+ 🕖  10
+[+] LF antenna: 40.29 V - 125.00 kHz
+[+] LF antenna: 34.92 V - 134.83 kHz
+[+] LF optimal: 42.62 V - 127.66 kHz
+[+] LF antenna is OK
 
-Measuring antenna characteristics, please wait........
-# LF antenna: 26.81 V @ 125.00 kHz
-# LF antenna: 30.80 V @ 134.00 kHz
-# LF optimal: 34.65 V @ 130.43 kHz
-Displaying LF tuning graph. Divisor 89 is 134khz, 95 is 125khz.
+[+] HF antenna: 32.76 V - 13.56 MHz
+[+] HF antenna is OK
+
+
+[+] Displaying LF tuning graph. Divisor 88 is 134.83 kHz, 95 is 125.00 kHz.
+
 ```
 
-Même opération avec une carte à proximité de l’antenne : on voit que la **tension a chuté à 26,81 V** lorsque l’antenne basse fréquence fonctionnait à 125 kHz.   
-Dans le cas présent, nous constatons donc que le tag inconnu fonctionne à **125 kHz**.
+On voit que la **tension a chuté à 32.76 V** lorsque l’antenne haute fréquence fonctionnait à `13.56 kHz`.   
+Dans le cas présent, nous constatons donc que la carte inconnue fonctionne à **13.56 kHz**.
 
 ![lftag](./assets/images/rfid/lftag.png "lftag")
 
