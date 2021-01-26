@@ -1,0 +1,826 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Ce cours fait partie du cours <b>ITII 2 - SmartCards / RFID</b> pour <b>YNCREA Toulon</b> sur les SmartCards et plus particulièrement les systèmes RFID. <br><br> <i>Le cours se déroule sur 1 jour et vise à donner aux étudiants un aperçu des cartes et badges RFID, leur fonctionnement, forces et faiblesses via des pen-tests.</i>">
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/yncrea.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.1.5">
+    
+    
+      
+        <title>Introduction - Yncrea - Cours RFID</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.f6cf1dc9.min.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/palette.85bb4ebe.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#00bdd6">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+        
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","None","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}),document.addEventListener("DOMContentSwitch",function(){ga("send","pageview",document.location.pathname)})</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="cyan" data-md-color-accent="cyan">
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="Yncrea - Cours RFID" class="md-header-nav__button md-logo" aria-label="Yncrea - Cours RFID">
+      
+  <img src="../assets/images/yncrea.png" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Yncrea - Cours RFID
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Introduction
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/jurocknsail/yncrea-rfid" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    yncrea-rfid
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+          
+
+  
+
+<nav class="md-tabs md-tabs--active" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href=".." class="md-tabs__link">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="./" class="md-tabs__link md-tabs__link--active">
+          Day#1
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Yncrea - Cours RFID" class="md-nav__button md-logo" aria-label="Yncrea - Cours RFID">
+      
+  <img src="../assets/images/yncrea.png" alt="logo">
+
+    </a>
+    Yncrea - Cours RFID
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/jurocknsail/yncrea-rfid" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    yncrea-rfid
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Day#1
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Day#1" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Day#1
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Introduction
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      Introduction
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    Objectifs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rfid-ou-radio-frequency-identification" class="md-nav__link">
+    RFID ou Radio Frequency IDentification
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemples-concrets" class="md-nav__link">
+    Exemples concrets
+  </a>
+  
+    <nav class="md-nav" aria-label="Exemples concrets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tokyo-et-la-pub" class="md-nav__link">
+    Tokyo et la Pub
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paris-et-les-arbres" class="md-nav__link">
+    Paris et les Arbres
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ameliorations-du-quotidien" class="md-nav__link">
+    Améliorations du quotidien
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lutte-contre-le-vol-et-la-contrefacon" class="md-nav__link">
+    Lutte contre le vol et la contrefaçon
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-tracabilite-des-produits" class="md-nav__link">
+    La traçabilité des produits
+  </a>
+  
+    <nav class="md-nav" aria-label="La traçabilité des produits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chez-les-animaux" class="md-nav__link">
+    Chez les animaux
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dans-les-chaines-de-production-et-livraison" class="md-nav__link">
+    Dans les chaines de production et livraison
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestion-des-stocks-de-magasins" class="md-nav__link">
+    Gestion des stocks de magasins
+  </a>
+  
+    <nav class="md-nav" aria-label="Gestion des stocks de magasins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tesco" class="md-nav__link">
+    Tesco
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decathlon" class="md-nav__link">
+    Decathlon
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dans-le-futur" class="md-nav__link">
+    Dans le futur
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../01_rfid-vs-nfc/" class="md-nav__link">
+      RFID vs NFC
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../02_puces-lecteurs-rfid/" class="md-nav__link">
+      Puces et Lecteurs RFID
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../04_limites-rfid/" class="md-nav__link">
+      Limites du RFID
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../05_mifare-classic-1k/" class="md-nav__link">
+      Etude - MIFARE Classic 1K
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../06_mifare-classic-1k-hacking/" class="md-nav__link">
+      TP - MC 1K Ethical Hacking
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    Objectifs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rfid-ou-radio-frequency-identification" class="md-nav__link">
+    RFID ou Radio Frequency IDentification
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemples-concrets" class="md-nav__link">
+    Exemples concrets
+  </a>
+  
+    <nav class="md-nav" aria-label="Exemples concrets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tokyo-et-la-pub" class="md-nav__link">
+    Tokyo et la Pub
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paris-et-les-arbres" class="md-nav__link">
+    Paris et les Arbres
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ameliorations-du-quotidien" class="md-nav__link">
+    Améliorations du quotidien
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lutte-contre-le-vol-et-la-contrefacon" class="md-nav__link">
+    Lutte contre le vol et la contrefaçon
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-tracabilite-des-produits" class="md-nav__link">
+    La traçabilité des produits
+  </a>
+  
+    <nav class="md-nav" aria-label="La traçabilité des produits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chez-les-animaux" class="md-nav__link">
+    Chez les animaux
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dans-les-chaines-de-production-et-livraison" class="md-nav__link">
+    Dans les chaines de production et livraison
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestion-des-stocks-de-magasins" class="md-nav__link">
+    Gestion des stocks de magasins
+  </a>
+  
+    <nav class="md-nav" aria-label="Gestion des stocks de magasins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tesco" class="md-nav__link">
+    Tesco
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decathlon" class="md-nav__link">
+    Decathlon
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dans-le-futur" class="md-nav__link">
+    Dans le futur
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">⚓︎</a></h1>
+<hr />
+<h2 id="objectifs">Objectifs<a class="headerlink" href="#objectifs" title="Permanent link">⚓︎</a></h2>
+<p>Avec la croissance des produits <strong>RFID</strong>, il est important de bien comprendre comment la technologie <em>fonctionne</em> et comment l’<em>utiliser</em> de la manière la plus efficace.   </p>
+<p>Nous allons utiliser une carte <strong>Mifare Classic 1K</strong> pour exemple.  </p>
+<p>Nous allons ensuite exploiter les <strong>failles de sécurité</strong> de cette carte afin de <strong>hacker</strong> puis <strong>cloner</strong> la carte en question.  </p>
+<hr />
+<h2 id="rfid-ou-radio-frequency-identification">RFID ou Radio Frequency IDentification<a class="headerlink" href="#rfid-ou-radio-frequency-identification" title="Permanent link">⚓︎</a></h2>
+<p>Tous les jours nous utilisons des <strong>produits RFID</strong> sans le savoir : cartes de transports, des étiquettes antivols dans les magasins, des badges de sécurité ou plus récemment des clés sans contact pour voiture.  </p>
+<p>Cette technologie a pour avantager de faire gagner du temps aux usagers et de permettre une lecture rapide des données.  </p>
+<p>La RFID est une méthode qui permet de <strong>mémoriser et récupérer des données à distance</strong>.   </p>
+<p>Le système est activé par un <em>transfert d’énergie électromagnétique</em> entre une étiquette radio (passive le plus souvent) et un émetteur RFID (actif).  </p>
+<p>L’étiquette radio, composée d’une puce électronique et d’une antenne,  reçoit le signal radio émis par le lecteur RFID.<br />
+Les composants permettent à la fois de lire et de répondre aux signaux.</p>
+<p><img alt="rfid" src="../assets/images/rfid/puce-rfid.png" style="height:450px;width:700px;align=center" title="rfid" /></p>
+<hr />
+<h2 id="exemples-concrets">Exemples concrets<a class="headerlink" href="#exemples-concrets" title="Permanent link">⚓︎</a></h2>
+<h3 id="tokyo-et-la-pub">Tokyo et la Pub<a class="headerlink" href="#tokyo-et-la-pub" title="Permanent link">⚓︎</a></h3>
+<p>A Tokyo, plus de 10 000 Marqueurs RFID ont été installés dans les rues afin d’informer les piétons lors de leurs déplacements ou encore pour envoyer certaines promotions ciblées dans la rue.  </p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Ce projet était un test. Il a été fait dans le respect des données personnelles des utilisateurs.</p>
+</div>
+<hr />
+<h3 id="paris-et-les-arbres">Paris et les Arbres<a class="headerlink" href="#paris-et-les-arbres" title="Permanent link">⚓︎</a></h3>
+<p>Paris a inséré des puces RFID (fiches) dans 95 000 arbres pour assurer un suivi de ces derniers. <br />
+Pour lire et/ou renseigner ces fiches, les agents municipaux sont munis d’un terminal nomade capable de lire les puces RFID.<br />
+Par ce système, Oracle met en avant une réduction des «paperasseries et lourdeurs administratives».</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Ces puces, insérées à 2 cm de profondeur dans les troncs, se présentent sous la forme d'un cylindre de 3 cm de long intégrant une seule information: le numéro d'identification de l’arbre. <br />
+En passant le lecteur portable à 15 cm de distance, l’agent peut accéder à la fiche de chaque arbre sur une base de données embarquée.
+Il peut ensuite y ajouter / modifier sa date de plantation, ses arrosages, les maladies diagnostiquées, ou encore les éventuels traumatismes occasionnés notamment par les chocs de véhicules.
+La base centrale est mise à jour chaque soir lorsque les terminaux nomades se rechargent sur leurs stations d'accueil.   </p>
+</div>
+<hr />
+<h3 id="ameliorations-du-quotidien">Améliorations du quotidien<a class="headerlink" href="#ameliorations-du-quotidien" title="Permanent link">⚓︎</a></h3>
+<p>Pour simplifier la vie des ménages, les entreprises ont introduits la RFID dans beaucoup d’objets du quotidien tels que :</p>
+<ul>
+<li>les péages électroniques d’autoroute (Vinci)</li>
+<li>les transports en commun (pass Navigo)</li>
+<li>les passeports biométriques (L'Etat)</li>
+<li>le paiement sans contact... (Les banques)</li>
+</ul>
+<hr />
+<h3 id="lutte-contre-le-vol-et-la-contrefacon">Lutte contre le vol et la contrefaçon<a class="headerlink" href="#lutte-contre-le-vol-et-la-contrefacon" title="Permanent link">⚓︎</a></h3>
+<p>La RFID permet également de lutter contre le vol à l’étalage grâce à des étiquettes antivol discrètes à poser directement sur le produit ou sur l’emballage.</p>
+<hr />
+<h3 id="la-tracabilite-des-produits">La traçabilité des produits<a class="headerlink" href="#la-tracabilite-des-produits" title="Permanent link">⚓︎</a></h3>
+<h4 id="chez-les-animaux">Chez les animaux<a class="headerlink" href="#chez-les-animaux" title="Permanent link">⚓︎</a></h4>
+<p>L’une des utilisations les plus anciennes pour ce type de procédé vient des années 80 pour l’identification et la traçabilité du bétail. La technologie RFID permet de contrôler les animaux de leur naissance jusqu’à l’abatage sans fraude, pour une meilleure traçabilité pour le consommateur et l’agriculteur.  <br />
+Aujourd’hui, de plus en plus de puces sous cutanées sont introduit sous la peau de certains animaux notamment pour une meilleure identification des animaux de compagnie (en cas de perte) ou un contrôle des animaux en voie de disparition.  </p>
+<h4 id="dans-les-chaines-de-production-et-livraison">Dans les chaines de production et livraison<a class="headerlink" href="#dans-les-chaines-de-production-et-livraison" title="Permanent link">⚓︎</a></h4>
+<p>L'étiquette est posée sur le produit ou sur son emballage au cours de sa fabrication. <br />
+La puce permet de tracer le produit durant son parcours : pendant le transport en avion, le stockage ou encore la mise en rayon dans un magasin.<br />
+Cette technique permet d’estimer au mieux le coût et la durée de la chaîne logistique. <br />
+Aussi, cela permet d’anticiper des dysfonctionnements et d’obtenir un historique du produit en cas de dommages.  </p>
+<hr />
+<h3 id="gestion-des-stocks-de-magasins">Gestion des stocks de magasins<a class="headerlink" href="#gestion-des-stocks-de-magasins" title="Permanent link">⚓︎</a></h3>
+<p>On retrouve ici le picking en rayon ou la gestion des stocks dans sa globalité.</p>
+<p>Dans les magasins et usines qui possèdent des stocks, le tag RFID est le moyen d’analyser rapidement les flux du stock jusqu’à la vente.<br />
+La caisse communique avec l’ordinateur mettant ainsi à jour la liste du stock.<br />
+La technologie informe de l’arrivée et de la sortie du produit.<br />
+En cas de vol dans un stock, il est possible de retracer le parcours du produit. <br />
+Au-delà des stocks, les magasins peuvent également accélérer l’inventaire en boutique.   </p>
+<h4 id="tesco">Tesco<a class="headerlink" href="#tesco" title="Permanent link">⚓︎</a></h4>
+<p>Des entreprises telles que Tesco, une marque britannique, utilisent des robots équipés de lecteurs RFID pour lire les puces et faire l’inventaire.
+Les étiquettes RFID permettent de reconnaître un produit et d’obtenir toutes ses caractéristiques.   </p>
+<h4 id="decathlon">Decathlon<a class="headerlink" href="#decathlon" title="Permanent link">⚓︎</a></h4>
+<p>Pour optimiser au mieux sa chaîne logistique, des entreprises comme Décathlon utilisent la technologie RFID pour reconnaître les produits et les échanger sans tickets de caisse.</p>
+<hr />
+<h3 id="dans-le-futur">Dans le futur<a class="headerlink" href="#dans-le-futur" title="Permanent link">⚓︎</a></h3>
+<p>Dans le futur, nous pourrons voir la RFID dans d’autres domaines tels que la médecine, dans les poubelles publiques, ou reliés à une connexion Wi-Fi. </p>
+<p><strong>Esso</strong> a, par exemple, mis en place un système qui permettrait de s’approvisionner en carburant grâce à un lecteur positionné dans sa voiture.</p>
+<p>Etc ...</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href=".." class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Home
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../01_rfid-vs-nfc/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                RFID vs NFC
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            &copy; 2020 Julien Berger
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/jurocknsail" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.linkedin.com/in/julien-berger-0a9671154/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.8caa27b7.min.js"></script>
+      <script src="../assets/javascripts/bundle.193efd2f.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: ["tabs", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand"],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.37585f48.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
