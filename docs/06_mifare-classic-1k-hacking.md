@@ -20,24 +20,31 @@ Ce lecteur vient avec son propre SDK et coute entre 25€ et 30€.
 
 1. Connecter le lecteur au PC
 1. Ouvrir le logiciel `ACS SMart Card Reader
-1. Selectionner `Smart Cards > MIFARE SERIES > Mifare Classic > Mifare Classic Card Tool`
+1. Selectionner :   
+`Smart Cards > MIFARE SERIES > Mifare Classic > Mifare Classic Card Tool`
 1. La LED du lecteur est rouge
-1. Poser le badge **#1** sur le lecteur, la LED devient verte
-1. Cliquer sur ```New Connection > PC/SC Connection``` pour connecter le lecteur
-1. ``Card UUID`` permet de récupérer l'UID de la carte
+1. Poser le badge **Bleu 1** sur le lecteur, la LED devient verte
+1. Pour connecter le lecteur cliquer sur :       
+```New Connection > PC/SC Connection``` 
+1. Récupérer l'UID de la carte :  
+``Card UUID`` 
 
 ### ACR122u Tool - ATR
 
 Comme sur une smart card, on voit l'ATR (Answer To Reset) passer quand on pose le badge sur le lecteur.   
 Cela nous donnera l'accès aux commandes cartes.  
 
-1. Il faut maintenant Charger les Clés dans le lecteur : 
-``Load Key > Key Structure : 00 / Key Number : 00 / Key > FF FF FF FF FF FF`` (Default Transport Configuration pour toute nouvelle carte)
-``Load Key > Key Structure : 00 / Key Number : 01 / Key > FF FF FF FF AA 01`` (Clé A modifiée du secteur 1).
-``Load Key > Key Structure : 00 / Key Number : 02 / Key > FF FF FF FF BB 01`` (Clé B modifiée du secteur 1).
+1. Il faut maintenant Charger les Clés dans le lecteur :   
+``Load Key > Key Structure : 00 / Key Number : 00 / Key > FF FF FF FF FF FF``   
+(Default Transport Configuration pour toute nouvelle carte)  
+``Load Key > Key Structure : 00 / Key Number : 01 / Key > FF FF FF FF AA 01``   
+(Clé A modifiée du secteur 1).  
+``Load Key > Key Structure : 00 / Key Number : 02 / Key > FF FF FF FF BB 01``   
+(Clé B modifiée du secteur 1).  
 
-1. Puis on peut ``s'authentifier`` sur le block de notre choix : **block 00** (en HEX), avec la Clé A n° 00` provisionnée au dessus.
-1. On peut enfin ``lire`` le `block 0` (en HEX) sur une longueur de **OF** et retrouver notre UID !
+1. Puis on peut ``s'authentifier`` sur le block de notre choix :   
+**`block 0x00`**, avec la `Clé A n° 0x00` provisionnée au dessus.
+1. On peut enfin ``lire`` le `block 0` (en HEX) sur une longueur de **`0xOF`** et retrouver notre UID !
 1. On peut lire les blocks 1 et 2, ils ne contiennent que des 0.
 1. On peut aussi lire le block 3 qui est le sector trailer du secteur 0.
 
@@ -115,7 +122,7 @@ Pour utiliser le client `pm3 de Iceman :
      
 ```bash linenums="1"
 ❯ pm3
-ou
+  ou
 ❯ proxmark3 /dev/tty.usbmodemiceman1
 ```
 
@@ -139,7 +146,7 @@ La commande ``hw tune`` renseigne les tensions présentes dans les deux antennes
 Si on mesure les tensions présentes avant et après l’approche du tag sur les antennes haute et basse fréquences, on observera une chute importante de la tension à la fréquence de fonctionnement du tag.
 
 Sans la carte :
-```bash linenums="1"
+```bash linenums="1" hl_lines="9"
 [usb] pm3 --> hw tune
 [=] Measuring antenna characteristics, please wait...
  🕚  10
@@ -156,7 +163,8 @@ Sans la carte :
 ```
 
 Avec la carte :
-```bash linenums="1"
+```bash linenums="1" hl_lines="9"
+[usb] pm3 --> hw tune
 [=] Measuring antenna characteristics, please wait...
  🕖  10
 [+] LF antenna: 40.29 V - 125.00 kHz
@@ -206,7 +214,7 @@ L'étape précedente nous offre la possibilité de s'authentifier sur un ou plus
 Cela nous ouvre les portes de la **Nested** Attack (De l'interieur).  
 
 !!! info
-    Le mifare classic 1k a un générateur de nombres aléatoires faible (RNG) qui est essentiellement un registre à décalage avec un petit plus.   
+    Le mifare classic 1k a un générateur de nombres aléatoires faible (RNG) qui est essentiellement un registre à décalage.   
     Sa faiblesse vient de la possibilité de restaurer le *nonce*[^1] généré de 32 bits.   
     Si nous nous authentifions plusieurs fois avec une clé connue, nous pouvons trouver le nombre médian de décalages et deviner assez précisément le nonce non crypté en annulant le nonce crypté (nous nous sommes déjà authentifiés et nous connaissons le cryptage).   
     Puisque ce nonce est initialisé par la clé symétrique XOR avec l'UID de la carte, nous pouvons effectivement trouver 32 bits de la clé de 48 bits.
