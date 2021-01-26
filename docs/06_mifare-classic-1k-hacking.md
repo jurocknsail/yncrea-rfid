@@ -232,7 +232,7 @@ Cela nous ouvre les portes de la **Nested** Attack (De l'interieur).
 ### Darkside Attack
 
 !!! tip
-    Utiliser le badge rouge avec toutes les clés modifiées !
+    Utiliser le badge jaune avec toutes les clés modifiées (Clés : FF FF FF FF AA/BB <0xSectorNb>) !
     
     
 Les manipulations ci-dessus n’ont été possibles que parce que nous avons découvert une clé par défaut omise par les administrateurs des équipements.  
